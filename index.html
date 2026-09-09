@@ -1,0 +1,472 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "inverse-surface": "#293040", "on-surface-variant": "#3d4a42", "outline-variant": "#bccac0", "primary-fixed-dim": "#68dba9", "outline": "#6d7a72", "on-surface": "#141b2b", "surface": "#f9f9ff", "background": "#f9f9ff", "inverse-primary": "#68dba9", "on-primary-container": "#f5fff7", "surface-container-low": "#f1f3ff", "tertiary-fixed-dim": "#7bd8b1", "on-background": "#141b2b", "on-secondary-fixed": "#002113", "on-tertiary-fixed": "#002115", "surface-container-high": "#e1e8fd", "tertiary-container": "#1e8462", "on-primary-fixed": "#002114", "on-tertiary-fixed-variant": "#00513a", "surface-container-highest": "#dce2f7", "on-primary": "#ffffff", "primary": "#006948", "on-error-container": "#93000a", "tertiary": "#00694c", "on-secondary-container": "#00714d", "error": "#ba1a1a", "on-secondary-fixed-variant": "#005236", "surface-bright": "#f9f9ff", "surface-container": "#e9edff", "secondary": "#006c49", "surface-container-lowest": "#ffffff", "on-tertiary-container": "#f5fff7", "primary-fixed": "#85f8c4", "tertiary-fixed": "#97f5cc", "on-error": "#ffffff", "secondary-fixed-dim": "#4edea3", "primary-container": "#00855d", "surface-tint": "#006c4a", "on-primary-fixed-variant": "#005137", "on-tertiary": "#ffffff", "on-secondary": "#ffffff", "secondary-fixed": "#6ffbbe", "surface-variant": "#dce2f7", "error-container": "#ffdad6", "secondary-container": "#6cf8bb", "inverse-on-surface": "#edf0ff", "surface-dim": "#d3daef" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "gutter-mobile": "1rem", "space-16": "4rem", "space-1": "0.25rem", "gutter-tablet": "1.5rem", "container-max": "80rem", "gutter-desktop": "1.5rem", "space-8": "2rem", "space-0": "0px", "sidebar-collapsed": "4.5rem", "sidebar-width": "16rem", "space-3": "0.75rem", "space-4": "1rem", "space-5": "1.25rem", "space-6": "1.5rem", "space-12": "3rem", "space-10": "2.5rem", "space-2": "0.5rem" }, "fontFamily": { "display-sm": ["Inter"], "label-lg": ["Inter"], "headline-md": ["Inter"], "body-lg": ["Inter"], "body-sm": ["Inter"], "body-xs": ["Inter"], "display-lg": ["Inter"], "headline-lg-mobile": ["Inter"], "label-sm": ["Inter"], "data-mono": ["JetBrains Mono"], "headline-lg": ["Inter"], "headline-sm": ["Inter"], "body-md": ["Inter"], "label-md": ["Inter"] }, "fontSize": { "display-sm": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "500" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0.005em", "fontWeight": "400" }], "body-xs": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400" }], "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-lg-mobile": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }], "data-mono": ["13px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.005em", "fontWeight": "500" }] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-gutter-desktop flex items-center justify-between gap-space-4"><div class="flex items-center gap-space-4"><div class="flex items-center gap-space-3"><img alt="Mercado Viva Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vonrg-j7voXFqk9a-nu6b9NvL73bqxr43I95UrQ17DcDaaUrU4gQe4HqZEZ65cXDhEVtm6Yn7TAy6-07xa68w7pNY3OiNcCN9cHU9L3mbMEr4t2dV_B35HssxLKDYsBoOB1GcKWcxC-4MXWcAx8iM0gkvspLjTJsrC3p3JsQA-NUydwApgd2dnNZwkl6IeroqSkKZ7rZHUqkm_BxFJqjYDREBlcQOB9_Kn1OqsCxLmsyJETtUCgHbXqA0q"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Mercado Viva POS</span></div><div class="h-5 w-px bg-outline-variant/40 hidden md:block"></div><div class="hidden lg:flex items-center gap-space-2 text-on-surface-variant font-body-sm text-body-sm"><span class="material-symbols-outlined text-[16px] text-primary">storefront</span><span class="">Sucursal Providencia #104 - Caja 03</span></div><div class="inline-flex items-center gap-space-1 px-space-2 py-space-1 rounded-lg bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span><span class="">Online / Sincronizado</span></div></div><div class="flex items-center gap-space-4"><div class="hidden xl:flex items-center gap-space-2 font-data-mono text-data-mono text-on-surface-variant"><span class="material-symbols-outlined text-[16px]">schedule</span><span class="">24 Oct 2024 · 14:32:08 CLT</span></div><div class="h-5 w-px bg-outline-variant/40 hidden xl:block"></div><div class="flex items-center gap-space-2 px-space-3 py-space-1 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="hidden sm:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface leading-tight">Carlos Mendoza</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Cajero Líder</span></div><span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span></div></div></div></header><aside class="fixed left-0 top-16 bottom-0 w-sidebar-width bg-surface-container-low z-40 flex flex-col justify-between py-space-4 px-space-3 shadow-[0_1px_8px_rgba(0,0,0,0.02)]"><div class="flex flex-col gap-space-4"><div class="px-space-3 py-space-1 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Operaciones POS</div><nav class="flex flex-col gap-space-1" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm"><a class="flex items-center gap-space-3 px-space-3 py-space-2 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="terminal-de-caja" href="#"><span class="material-symbols-outlined text-[20px]">point_of_sale</span>Terminal de Caja</a><a aria-current="page" class="flex items-center gap-space-3 px-space-3 py-space-2 rounded-xl transition-colors bg-primary-container text-on-primary-container font-headline-sm" data-path="devoluciones-omnicanal" href="#"><span class="material-symbols-outlined text-[20px]">assignment_return</span>Devoluciones Omnicanal</a><a class="flex items-center gap-space-3 px-space-3 py-space-2 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="gestion-de-inventario" href="#"><span class="material-symbols-outlined text-[20px]">inventory_2</span>Inventario y Stock</a><a class="flex items-center gap-space-3 px-space-3 py-space-2 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="arqueo-de-caja" href="#"><span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>Arqueo de Caja</a><a class="flex items-center gap-space-3 px-space-3 py-space-2 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="historial-de-ventas" href="#"><span class="material-symbols-outlined text-[20px]">receipt_long</span>Historial de Ventas</a></nav></div><div class="flex flex-col gap-space-2 pt-space-4 border-t border-outline-variant/30 px-space-2"><div class="flex items-center justify-between text-on-surface-variant font-body-xs text-body-xs px-space-1"><span class="">Versión POS</span><span class="font-data-mono text-data-mono">v4.8.2</span></div><button class="flex items-center justify-center gap-space-2 w-full py-space-2 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">lock</span>Bloquear Terminal</button></div></aside><div class="pl-sidebar-width"><main class="w-full pt-16 bg-surface min-h-screen px-gutter-desktop py-space-6"><div class="flex flex-col w-full">
+<!-- Operational Sub-Header & Live Metadata -->
+<div class="w-full flex flex-col lg:flex-row lg:items-center justify-between gap-space-4 pb-space-6">
+<div class="flex flex-col gap-space-1">
+<div class="flex items-center gap-space-3">
+<span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-primary-container/20 text-primary">
+<span class="material-symbols-outlined text-[20px]">assignment_return</span>
+</span>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Devoluciones Omnicanal (Web-to-Store)</h1>
+<span class="px-space-2 py-0.5 rounded text-label-sm font-label-sm bg-primary/10 text-primary font-semibold">Live POS v4.8</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="inline-flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+          Turno Mañana
+        </span>
+<span class="text-outline-variant">•</span>
+<span class="">Caja 03 — Providencia</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-md text-label-md text-on-surface">Cajero: Carlos Mendoza (#8841)</span>
+</div>
+</div>
+<!-- Keyboard Hotkey Badges for Cashier Ergonomics -->
+<div class="flex items-center gap-space-2 flex-wrap">
+<div class="inline-flex items-center gap-1.5 px-space-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant text-label-sm font-label-sm shadow-sm">
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-data-mono text-label-sm">F2</kbd>
+<span class="">Nuevo Escaneo</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-space-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant text-label-sm font-label-sm shadow-sm">
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-data-mono text-label-sm">F4</kbd>
+<span class="">Reembolso Directo</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-space-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant text-label-sm font-label-sm shadow-sm">
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-data-mono text-label-sm">ESC</kbd>
+<span class="">Cancelar</span>
+</div>
+</div>
+</div>
+<!-- Primary Barcode / QR Scanner Input Banner -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-5 shadow-sm flex flex-col gap-space-4">
+<div class="flex flex-col md:flex-row items-stretch md:items-center gap-space-3">
+<div class="relative flex-1">
+<div class="absolute inset-y-0 left-0 pl-space-4 flex items-center pointer-events-none text-primary">
+<span class="material-symbols-outlined text-[24px]">qr_code_scanner</span>
+</div>
+<input class="w-full h-12 pl-12 pr-space-10 rounded-lg bg-surface-container-low text-on-surface font-data-mono text-headline-sm placeholder-on-surface-variant/50 focus:outline-none focus:bg-surface-container-lowest shadow-inner transition-colors" id="scannerInput" placeholder="Ingresar Código de Devolución Web o Escanear QR (ej. DEV-8492)" type="text" value="DEV-8492">
+<div class="absolute inset-y-0 right-0 pr-space-3 flex items-center">
+<button class="text-on-surface-variant hover:text-on-surface p-1 rounded transition-colors" title="Limpiar código" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-space-2">
+<button class="h-12 px-space-5 bg-primary-container text-on-primary-container font-label-lg text-label-lg rounded-lg shadow-sm hover:opacity-95 transition-opacity flex items-center gap-space-2" type="button">
+<span class="material-symbols-outlined text-[20px]">search</span>
+<span class="">Validar Código</span>
+</button>
+<button class="h-12 w-12 flex items-center justify-center bg-surface-container text-on-surface-variant rounded-lg hover:bg-surface-container-high transition-colors" title="Escanear con cámara auxiliar" type="button">
+<span class="material-symbols-outlined text-[22px]">photo_camera</span>
+</button>
+</div>
+</div>
+<!-- Validated Customer Order Match Banner -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-3 px-space-4 py-space-3 bg-secondary-container/30 rounded-lg text-on-secondary-container">
+<div class="flex items-center gap-space-3 min-w-0">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-secondary text-on-secondary">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</span>
+<div class="flex flex-wrap items-center gap-x-space-2 gap-y-0.5 font-body-sm text-body-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface">Pedido Validado: #MV-8492</span>
+<span class="text-outline-variant hidden sm:inline">•</span>
+<span class="font-label-md text-label-md text-on-surface">Camila Sepúlveda</span>
+<span class="font-data-mono text-data-mono text-on-surface-variant">+56 9 8412 3901</span>
+<span class="px-space-2 py-0.5 rounded text-label-sm font-label-sm bg-secondary-container text-on-secondary-container font-medium">Cuenta Verificada Web</span>
+</div>
+</div>
+<div class="flex items-center gap-space-3 text-body-xs font-body-xs text-on-surface-variant self-end md:self-auto">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">local_shipping</span> Despachado 22 Oct
+        </span>
+<span class="">•</span>
+<span class="">Total Compra Original: $28.560</span>
+</div>
+</div>
+</div>
+<!-- Main Work Area: 2-Column POS Layout -->
+<div class="w-full grid grid-cols-1 xl:grid-cols-12 gap-space-6 mt-space-6 items-start">
+<!-- Left Column: Verification Data Table (8 Cols) -->
+<div class="xl:col-span-8 flex flex-col gap-space-4">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<!-- Table Header Bar -->
+<div class="px-space-5 py-space-4 bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-space-2">
+<div class="flex items-center gap-space-3">
+<span class="font-headline-sm text-headline-sm text-on-surface">Ítems a Recepcionar en Tienda</span>
+<span class="px-space-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-high text-on-surface font-semibold">3 productos en pedido</span>
+</div>
+<div class="flex items-center gap-space-2 text-label-sm font-label-sm text-on-surface-variant">
+<span class="inline-block w-2 h-2 rounded-full bg-primary"></span>
+<span class="">2 ítems seleccionados para reembolso</span>
+</div>
+</div>
+<!-- Clean POS Data Table -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-space-3 px-space-4 w-10 text-center">
+<input checked="" class="w-4 h-4 rounded text-primary accent-primary cursor-pointer" title="Seleccionar Todos" type="checkbox">
+</th>
+<th class="py-space-3 px-space-3 min-w-[220px]">Ítem &amp; SKU</th>
+<th class="py-space-3 px-space-3 text-right">Precio Unit.</th>
+<th class="py-space-3 px-space-3 text-center">Pedida</th>
+<th class="py-space-3 px-space-3 text-center min-w-[100px]">A Devolver</th>
+<th class="py-space-3 px-space-3 min-w-[140px]">Estado Físico</th>
+<th class="py-space-3 px-space-3 min-w-[190px]">Motivo Específico</th>
+</tr>
+</thead>
+<tbody class="text-on-surface">
+<!-- Row 1: Aceite de Oliva Extra Virgen -->
+<tr class="hover:bg-surface-container-low/50 transition-colors bg-surface-container-lowest">
+<td class="py-space-4 px-space-4 text-center align-middle">
+<input checked="" class="item-checkbox w-4 h-4 rounded text-primary accent-primary cursor-pointer" data-amount="9890" type="checkbox">
+</td>
+<td class="py-space-4 px-space-3 align-middle">
+<div class="flex items-center gap-space-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Dark green glass bottle of extra virgin olive oil against clean natural light retail backdrop, 500ml studio packaging Mercado Viva brand" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZOFpXnbXqs8HgrlxcHUDpZt3xTugWQyUZ6wDMPjLeB-pIBMozPKtnv46Q0yOLHWJeeSkDNrOg1Br3lngbwXBS-QT103MibnpX6S2kNfzs3vRDEKC9fLIoi89sV6sjYA8PJ7vv8WEq6unSU06aullMoUTFtSDyPnXQ6870W1ApBBYbMTAlvDqKhrLAZbYzYMqOq6dSX6vqe6_Bymn_lzbxokOQcVN09joh-03fu2ZWP92lIB9y4DMsJA">
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate font-semibold">Aceite de Oliva Extra Virgen 500ml</span>
+<div class="flex items-center gap-space-2 text-body-xs font-body-xs text-on-surface-variant">
+<span class="font-data-mono text-data-mono">SKU: AB-9021</span>
+<span class="">•</span>
+<span class="">Abarrotes Premium</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-4 px-space-3 text-right font-data-mono text-data-mono text-on-surface align-middle whitespace-nowrap">
+                  $9.890
+                </td>
+
+<td class="py-space-4 px-space-3 text-center align-middle">
+<div class="inline-flex items-center justify-center bg-surface-container rounded-lg px-2 py-1">
+<span class="font-data-mono text-data-mono font-semibold text-on-surface">1</span>
+</div>
+</td>
+<td class="py-space-4 px-space-3 align-middle">
+<span class="inline-flex items-center gap-1 px-space-2 py-0.5 rounded text-label-sm font-label-sm bg-error-container text-on-error-container font-semibold">
+<span class="material-symbols-outlined text-[14px]">delete</span>
+                    Merma
+                  </span>
+</td>
+<td class="py-space-4 px-space-3 align-middle">
+<select class="w-full h-9 px-space-2 rounded bg-surface-container text-on-surface font-body-xs text-body-xs focus:outline-none focus:bg-surface-container-low cursor-pointer">
+<option selected="">Producto defectuoso / Sello roto</option>
+<option>Vencimiento próximo</option>
+<option>Cambio de opinión</option>
+<option>Otro motivo</option>
+</select>
+</td>
+</tr>
+<!-- Row 2: Café Molido Premium -->
+<tr class="hover:bg-surface-container-low/50 transition-colors bg-surface-container-lowest">
+<td class="py-space-4 px-space-4 text-center align-middle">
+<input checked="" class="item-checkbox w-4 h-4 rounded text-primary accent-primary cursor-pointer" data-amount="6290" type="checkbox">
+</td>
+<td class="py-space-4 px-space-3 align-middle">
+<div class="flex items-center gap-space-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Kraft paper coffee bag with intense roast label and coffee bean artwork retail grocery shelf presentation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx4B2In1smYUskH45Z5w3dey9D5CSqjjQQFqu8zh8MxF1nf6Ql4xLKkThrd3aieFeaVsT7ao3jbgxEL7q6vKXHZVOT0wcrf97nLWu32H7nT9chaRvMBSBRUqjrmKWzkktsR7ALUaQzs21BdHf9tSNnkNdSzC08kWeJW_COw5tNr7V80gO-Pq1lKgoyOMtnESeqyoQUkwGB6KCmtUC-GtEz7eC022mWdtG8vttYiu6V5laqVD_60_DrnA">
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate font-semibold">Café Molido Premium Tueste Intenso 250g</span>
+<div class="flex items-center gap-space-2 text-body-xs font-body-xs text-on-surface-variant">
+<span class="font-data-mono text-data-mono">SKU: CA-4402</span>
+<span class="">•</span>
+<span class="">Café &amp; Té</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-4 px-space-3 text-right font-data-mono text-data-mono text-on-surface align-middle whitespace-nowrap">
+                  $6.290 <span class="text-body-xs text-on-surface-variant font-normal block">c/u</span>
+</td>
+<td class="py-space-4 px-space-3 text-center font-data-mono text-data-mono text-on-surface-variant align-middle">
+                  2
+                </td>
+<td class="py-space-4 px-space-3 text-center align-middle">
+<div class="inline-flex items-center rounded-lg bg-surface-container p-0.5">
+<button class="w-6 h-6 flex items-center justify-center text-on-surface-variant hover:text-on-surface" title="Reducir cantidad" type="button">-</button>
+<span class="w-6 text-center font-data-mono text-data-mono font-semibold text-on-surface">1</span>
+<button class="w-6 h-6 flex items-center justify-center text-on-surface-variant hover:text-on-surface" title="Aumentar cantidad" type="button">+</button>
+</div>
+</td>
+<td class="py-space-4 px-space-3 align-middle">
+<span class="inline-flex items-center gap-1 px-space-2 py-0.5 rounded text-label-sm font-label-sm bg-secondary-container/50 text-on-secondary-container font-semibold">
+<span class="material-symbols-outlined text-[14px]">inventory</span>
+                    Reintegrable a Stock
+                  </span>
+</td>
+<td class="py-space-4 px-space-3 align-middle">
+<select class="w-full h-9 px-space-2 rounded bg-surface-container text-on-surface font-body-xs text-body-xs focus:outline-none focus:bg-surface-container-low cursor-pointer">
+<option selected="">Cambio de opinión / No deseado</option>
+<option>Producto defectuoso / Sello roto</option>
+<option>No corresponde al pedido</option>
+<option>Error en compra web</option>
+</select>
+</td>
+</tr>
+<!-- Row 3: Detergente Líquido Hipoalergénico (Unchecked) -->
+<tr class="bg-surface-container-low/40 opacity-70 hover:opacity-100 transition-opacity">
+<td class="py-space-4 px-space-4 text-center align-middle">
+<input class="item-checkbox w-4 h-4 rounded text-primary accent-primary cursor-pointer" data-amount="12380" type="checkbox">
+</td>
+<td class="py-space-4 px-space-3 align-middle">
+<div class="flex items-center gap-space-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high overflow-hidden flex-shrink-0 grayscale">
+<img class="w-full h-full object-cover" data-alt="Large white eco-friendly liquid detergent jug 3 liters with minimalist typography on clean kitchen surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVHNHuTTCThl_7wuHSKiEQRYubZbVYOftBV9KRq9xRevYMVwVfQ160POlEoxhoxf7kvy3Kp-eGeB1rkeeusCKUaJcCgoMIN_iy9PutydW2n3_BvBf3Dk-ej5Acy7lRTJz2_oohSYm6YE4Se97K7R8ataXEdAy9eqR03Z8EAh_tiDiyDbloxGYJc48eZlLsKOraxVUDpjaEbnEy6JOOK51h4lUfVGqR36sh3uTIdjR_02OQDv8qxVSDng">
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">Detergente Líquido Hipoalergénico 3L</span>
+<div class="flex items-center gap-space-2 text-body-xs font-body-xs text-on-surface-variant">
+<span class="font-data-mono text-data-mono">SKU: LI-1109</span>
+<span class="">•</span>
+<span class="">Cuidado del Hogar</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-4 px-space-3 text-right font-data-mono text-data-mono text-on-surface align-middle whitespace-nowrap">
+                  $12.380
+                </td>
+<td class="py-space-4 px-space-3 text-center font-data-mono text-data-mono text-on-surface-variant align-middle">
+                  1
+                </td>
+<td class="py-space-4 px-space-3 text-center align-middle">
+<span class="font-data-mono text-data-mono text-on-surface-variant">0</span>
+</td>
+<td class="py-space-4 px-space-3 align-middle">
+<span class="inline-flex items-center gap-1 px-space-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container-highest text-on-surface-variant font-medium">
+                    No Recibido
+                  </span>
+</td>
+<td class="py-space-4 px-space-3 align-middle">
+<span class="text-body-xs font-body-xs text-on-surface-variant italic">El cliente no trajo este producto</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Micro-footer -->
+<div class="px-space-5 py-space-3 bg-surface-container-low/70 flex flex-col sm:flex-row items-center justify-between gap-space-2 text-body-xs font-body-xs text-on-surface-variant">
+<div class="flex items-center gap-space-2">
+<span class="material-symbols-outlined text-[16px] text-primary">verified_user</span>
+<span class="">Escaneo de sellos y lotes con código DataMatrix completado sin alertas de expiración.</span>
+</div>
+<button class="text-primary font-label-sm text-label-sm font-semibold hover:underline" type="button">
+            + Añadir ítem manual fuera de catálogo
+          </button>
+</div>
+</div>
+<!-- Live Inspection & Inventory Logistics Helper Card -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-4 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-space-4">
+<div class="flex items-center gap-space-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">warehouse</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Destino de Mercadería Reintegrable</span>
+<span class="font-body-xs text-body-xs text-on-surface-variant">1 unidad de Café Molido → Rack A-12 (Piso de Venta Providencia)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-2">
+<span class="px-space-3 py-1 rounded-lg bg-surface-container text-on-surface font-data-mono text-label-sm">
+            Impresión etiqueta: AUTO-ON
+          </span>
+</div>
+</div>
+</div>
+<!-- Right Column: Financial Settlement & Refund Authorization (4 Cols) -->
+<div class="xl:col-span-4 flex flex-col gap-space-4">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-5 flex flex-col gap-space-5">
+<!-- Financial Breakdown Summary -->
+<div class="flex flex-col gap-space-3">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">Resumen de Liquidación</span>
+<span class="material-symbols-outlined text-primary text-[20px]">payments</span>
+</div>
+<div class="flex flex-col gap-space-2 pt-space-2">
+<div class="flex justify-between items-center text-body-sm font-body-sm text-on-surface-variant">
+<span class="">Subtotal ítems seleccionados (2 ítems)</span>
+<span class="font-data-mono text-data-mono text-on-surface">$16.180</span>
+</div>
+<div class="flex justify-between items-center text-body-sm font-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+                Reversión proporcional IVA (19%)
+                <span class="material-symbols-outlined text-[14px]" title="Impuesto al valor agregado recalculado automáticamente">info</span>
+</span>
+<span class="font-data-mono text-data-mono text-on-surface">Incluido ($2.583)</span>
+</div>
+<div class="flex justify-between items-center text-body-sm font-body-sm text-on-surface-variant">
+<span class="">Costo de envío original</span>
+<span class="font-data-mono text-data-mono text-on-surface">$0 (No reembolsable)</span>
+</div>
+<div class="pt-space-3 mt-space-1 bg-surface-container-low rounded-lg p-space-3 flex items-baseline justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Total a Reembolsar</span>
+<span class="font-body-xs text-body-xs text-on-surface-variant">Sincronizado con pasarela</span>
+</div>
+<div class="text-right">
+<span class="font-display-sm text-display-sm text-primary font-bold tracking-tight">$16.180</span>
+<span class="block font-data-mono text-body-xs text-on-surface-variant">CLP</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Refund Method Selector -->
+<div class="flex flex-col gap-space-3 pt-space-3">
+<label class="font-label-md text-label-md text-on-surface flex items-center justify-between">
+<span class="">Método de Reembolso</span>
+<span class="text-label-sm font-label-sm text-primary font-medium">Recomendado</span>
+</label>
+<div class="flex flex-col gap-space-2">
+<!-- Option 1: Original Card (Pre-selected) -->
+<label class="flex items-start gap-space-3 p-space-3 rounded-lg bg-surface-container cursor-pointer hover:bg-surface-container-high transition-colors">
+<input checked="" class="mt-1 w-4 h-4 text-primary accent-primary cursor-pointer" name="refundMethod" type="radio">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-2">
+<span class="material-symbols-outlined text-[18px] text-primary">credit_card</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Reversión a Tarjeta Débito</span>
+</div>
+<span class="font-data-mono text-body-xs text-on-surface-variant mt-0.5">Santander (**** 4921) vía Webpay</span>
+<span class="text-body-xs font-body-xs text-secondary mt-0.5">Acreditación estimada: 24 - 48 hrs hábiles</span>
+</div>
+</label>
+<!-- Option 2: Store Credit / App Balance -->
+<label class="flex items-start gap-space-3 p-space-3 rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
+<input class="mt-1 w-4 h-4 text-primary accent-primary cursor-pointer" name="refundMethod" type="radio">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">wallet</span>
+<span class="font-label-md text-label-md text-on-surface">Vale de Compra / Saldo en App</span>
+</div>
+<span class="text-body-xs font-body-xs text-on-surface-variant mt-0.5">Inmediato + 5% extra de bonificación</span>
+</div>
+</label>
+<!-- Option 3: Cash in Hand -->
+<label class="flex items-start gap-space-3 p-space-3 rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
+<input class="mt-1 w-4 h-4 text-primary accent-primary cursor-pointer" name="refundMethod" type="radio">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">point_of_sale</span>
+<span class="font-label-md text-label-md text-on-surface">Efectivo en Caja</span>
+</div>
+<span class="text-body-xs font-body-xs text-on-surface-variant mt-0.5">Apertura automática de gaveta 03</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Mandatory Global Reason & Notes -->
+<div class="flex flex-col gap-space-3 pt-space-2">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface flex items-center justify-between" for="globalReason">
+<span class="">Motivo General de Devolución</span>
+<span class="text-label-sm font-label-sm text-error font-medium">*Requerido</span>
+</label>
+<select class="w-full h-10 px-space-3 rounded-lg bg-surface-container text-on-surface font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-high cursor-pointer" id="globalReason">
+<option selected="">Devolución parcial verificada en tienda física</option>
+<option>Devolución total por insatisfacción de compra</option>
+<option>Mercadería dañada en trayecto de despacho</option>
+<option>Error en despacho logístico</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface" for="cashierNotes">Notas Internas del Cajero</label>
+<textarea class="w-full p-space-3 rounded-lg bg-surface-container text-on-surface font-body-sm text-body-sm placeholder-on-surface-variant/60 focus:outline-none focus:bg-surface-container-high transition-colors resize-none" id="cashierNotes" placeholder="Observaciones del estado de envases y sellos de seguridad..." rows="2">Botella de aceite presenta fisura en tapa superior. Café recibido con sello intacto y apto para sala de ventas.</textarea>
+</div>
+</div>
+<!-- Action Buttons Section -->
+<div class="flex flex-col gap-space-2 pt-space-2">
+<button class="w-full py-space-3 px-space-6 bg-primary-container hover:opacity-95 text-on-primary-container font-label-lg text-label-lg font-semibold rounded-lg shadow-sm transition-all flex items-center justify-center gap-space-2 active:scale-[0.99]" id="approveBtn" type="button">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+<span class="">Aprobar Devolución y Reembolsar $16.180</span>
+</button>
+<button class="w-full py-space-2 px-space-4 bg-surface-container hover:bg-error-container hover:text-on-error-container text-on-surface-variant font-label-md text-label-md rounded-lg transition-colors flex items-center justify-center gap-space-2" type="button">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+<span class="">Rechazar Solicitud</span>
+</button>
+</div>
+<!-- Audit & Compliance Notice Card -->
+<div class="p-space-3 rounded-lg bg-surface-container-low text-on-surface-variant flex items-start gap-space-2 text-body-xs font-body-xs">
+<span class="material-symbols-outlined text-[16px] text-primary flex-shrink-0 mt-0.5">verified</span>
+<p class="leading-tight">
+            Esta transacción quedará registrada bajo la firma digital del cajero ID <strong class="font-data-mono text-on-surface">#8841</strong> con reversión contable automática en ERP SAP y emisión de Nota de Crédito Electrónica SII.
+          </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Terminal POS Client-Side Micro-Interactions Script -->
+<script>
+    (function initPOSActions() {
+      const checkboxes = document.querySelectorAll('.item-checkbox');
+      const approveBtn = document.getElementById('approveBtn');
+      const scannerInput = document.getElementById('scannerInput');
+
+      // Update financial total dynamically if cashier toggles products
+      function recalculateTotal() {
+        let total = 0;
+        let count = 0;
+        checkboxes.forEach((cb) => {
+          if (cb.checked) {
+            total += parseInt(cb.dataset.amount || '0', 10);
+            count++;
+          }
+        });
+        const formatted = new Intl.NumberFormat('es-CL').format(total);
+        if (approveBtn) {
+          approveBtn.innerHTML = `
+            <span class="material-symbols-outlined text-[20px]">lock</span>
+            <span>Aprobar Devolución y Reembolsar $${formatted}</span>
+          `;
+          if (count === 0) {
+            approveBtn.classList.add('opacity-50', 'pointer-events-none');
+          } else {
+            approveBtn.classList.remove('opacity-50', 'pointer-events-none');
+          }
+        }
+      }
+
+      checkboxes.forEach((cb) => {
+        cb.addEventListener('change', recalculateTotal);
+      });
+
+      // Keyboard ergonomics for barcode scanner terminal
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'F2') {
+          e.preventDefault();
+          if (scannerInput) {
+            scannerInput.value = '';
+            scannerInput.focus();
+          }
+        } else if (e.key === 'F4') {
+          e.preventDefault();
+          if (approveBtn) approveBtn.click();
+        } else if (e.key === 'Escape') {
+          e.preventDefault();
+          if (confirm('¿Desea cancelar el proceso de recepción actual?')) {
+            window.location.reload();
+          }
+        }
+      });
+
+      if (approveBtn) {
+        approveBtn.addEventListener('click', () => {
+          approveBtn.innerHTML = `
+            <span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span>
+            <span>Emitiendo Nota de Crédito SII...</span>
+          `;
+          setTimeout(() => {
+            alert('Reembolso de $16.180 procesado exitosamente vía Transbank Webpay. Comprobante enviado por email a Camila Sepúlveda y transmitido a SAP.');
+            recalculateTotal();
+          }, 700);
+        });
+      }
+    })();
+  </script>
+</div></main></div>
+
+</body></html>
