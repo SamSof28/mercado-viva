@@ -1,7 +1,5 @@
 {
-	"installCommand": "npm install && npm install --prefix frontend",
-	"buildCommand": "npm run build --prefix frontend",
-	"outputDirectory": "frontend/dist",
+    "version": 2,
 	"rewrites": [
 		{ "source": "/api/:path*", "destination": "/api/index.js" },
 		{ "source": "/(.*)", "destination": "/index.html" }
