@@ -2,6 +2,7 @@ import { api } from './api';
 import type {
   StoreSession,
   ReturnOrder,
+  OrderItem,
   FinancialBreakdown,
   RefundRequest,
   RefundResponse,
@@ -20,16 +21,50 @@ export const returnService = {
    * y obtiene la información del pedido correspondiente.
    */
   async validateReturnCode(code: string): Promise<ReturnOrder> {
-    return api.get<ReturnOrder>(`/api/returns/${encodeURIComponent(code)}`);
+    const order = await api.get<any>(`/api/returns/${encodeURIComponent(code)}`);
+    return {
+      code: order.codigo_retorno,
+      orderId: order.id_pedido,
+      customer: order.customer ?? {
+        name: 'Cliente web',
+        phone: '',
+        isVerified: true,
+        accountType: 'Cuenta Web',
+      },
+      items: (order.detalle_pedido ?? []).map((item: any): OrderItem => ({
+        id: item.id_producto,
+        sku: item.productos?.sku ?? item.id_producto,
+        name: item.productos?.nombre ?? 'Producto sin nombre',
+        category: 'Sin categoría',
+        imageUrl: '',
+        unitPrice: Number(item.precio_unitario),
+        quantityOrdered: item.cantidad_comprada,
+        quantityToReturn: item.cantidad_comprada,
+        physicalStatus: null,
+        returnReason: '',
+        isSelected: false,
+      })),
+      dispatchDate: order.fecha_compra,
+      originalTotal: Number(order.total_pagado ?? 0),
+      originalPayment: order.originalPayment ?? {
+        type: 'Medio de pago original',
+        provider: '',
+        lastDigits: '',
+        gateway: '',
+      },
+    };
   },
 
   /**
    * Solicita al backend el recálculo financiero (subtotal, IVA proporcional, total a reembolsar).
    * El frontend NUNCA calcula números internamente.
    */
-  async calculateRefund(code: string, selectedItemIds: string[]): Promise<FinancialBreakdown> {
+  async calculateRefund(code: string, selectedItems: OrderItem[]): Promise<FinancialBreakdown> {
     return api.post<FinancialBreakdown>(`/api/returns/${encodeURIComponent(code)}/calculate`, {
-      selectedItemIds,
+      productos: selectedItems.map((item) => ({
+        id_producto: item.id,
+        cantidad_devuelta: item.quantityToReturn,
+      })),
     });
   },
 
