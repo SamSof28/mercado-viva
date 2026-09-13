@@ -6,9 +6,24 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors()); 
+app.use(express.json());
 
 app.use('/api/returns', returnsRoutes); 
 
-app.listen(PORT, () => {
-    console.log(`🚀 Servidor corriendo exitosamente en http://localhost:${PORT}`);
+app.get('/api/session', (req, res) => {
+    return res.json({
+        storeName: 'Sucursal configurada',
+        register: 'Caja POS',
+        shift: 'Turno actual',
+        posVersion: 'v1.0.0',
+        cashier: { id: 'local', name: 'Cajero POS', role: 'Cajero' },
+    });
 });
+
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Servidor corriendo exitosamente en http://localhost:${PORT}`);
+    });
+}
+
+module.exports = app;

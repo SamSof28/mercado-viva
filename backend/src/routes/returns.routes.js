@@ -11,4 +11,8 @@ router.post('/:codigo_retorno/calculate', calcularDevolucion);
 // Endpoint POST: Para confirmar y alterar la base de datos
 router.post('/:codigo_retorno/refund', procesarReembolso);
 
+router.post('/:codigo_retorno/reject', (req, res) => {
+	return res.status(200).json({ success: true, message: 'Solicitud de devolución rechazada.' });
+});
+
 module.exports = router;

@@ -76,6 +76,12 @@ export interface RefundRequest {
   refundMethod: RefundMethod;
   globalReason: string;
   cashierNotes: string;
+  id_tienda?: string;
+  productos?: Array<{
+    id_producto: string;
+    cantidad_devuelta: number;
+    physicalStatus: PhysicalStatus | null;
+  }>;
 }
 
 export interface RefundResponse {

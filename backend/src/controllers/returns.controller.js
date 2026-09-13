@@ -4,7 +4,7 @@ const consultarPedido = async (req, res) => {
     try {
         const { codigo_retorno } = req.params;
         const pedido = await ReturnsService.obtenerPedidoPorCodigo(codigo_retorno);
-        return res.status(200).json({ exito: true, datos: pedido });
+        return res.status(200).json(pedido);
     } catch (error) {
         const statusCode = error.status || 500;
         return res.status(statusCode).json({ error: error.message }); // Cumple con el PR
@@ -14,9 +14,7 @@ const consultarPedido = async (req, res) => {
 const calcularDevolucion = async (req, res) => {
     try {
         const { codigo_retorno } = req.params; 
-        const { productos } = req.body; 
-        
-        const calculos = await ReturnsService.calcularMontos(codigo_retorno, productos);
+        const calculos = await ReturnsService.calcularMontos(codigo_retorno, req.body);
         return res.status(200).json(calculos);
     } catch (error) {
         const statusCode = error.status || 500;

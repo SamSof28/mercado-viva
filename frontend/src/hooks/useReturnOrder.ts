@@ -100,7 +100,10 @@ export function useReturnOrder() {
     async (orderCode: string, selectedIds: string[], items: ReturnOrder['items']) => {
       setIsCalculating(true);
       try {
-        const result = await returnService.calculateRefund(orderCode, selectedIds);
+        const result = await returnService.calculateRefund(
+          orderCode,
+          items.filter((item) => selectedIds.includes(item.id))
+        );
         setFinancials(result);
       } catch (err) {
         console.warn('API /calculate no disponible, usando cálculo de respaldo:', err);
@@ -249,6 +252,14 @@ export function useReturnOrder() {
         refundMethod,
         globalReason,
         cashierNotes,
+        id_tienda: import.meta.env.VITE_STORE_ID || '00000000-0000-0000-0000-000000000000',
+        productos: returnOrder.items
+          .filter((item) => item.isSelected)
+          .map((item) => ({
+            id_producto: item.id,
+            cantidad_devuelta: item.quantityToReturn,
+            physicalStatus: item.physicalStatus,
+          })),
       };
 
       const res = await returnService.processRefund(returnOrder.code, payload);

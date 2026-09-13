@@ -1,86 +1,113 @@
-const supabase = require('../config/supabase'); 
+const supabase = require('../config/supabase');
 
-const obtenerPedidoPorCodigo = async (codigoRetorno) => {
-    const { data: pedido, error } = await supabase
-        .from('pedidos_web')
-        .select(`
-            id_pedido, estado, fecha_compra,
-            detalle_pedido (
-                id_producto, cantidad_comprada, precio_unitario,
-                productos ( nombre, sku, es_devoluble )
-            )
-        `)
-        .eq('codigo_retorno', codigoRetorno)
-        .single(); 
+const ORDER_SELECT = `
+    id_pedido, codigo_retorno, estado, fecha_compra, total_pagado,
+    detalle_pedido (
+        id_producto, cantidad_comprada, precio_unitario,
+        productos ( nombre, sku, es_devoluble )
+    )
+`;
 
-    if (error || !pedido) throw { status: 404, message: "El pedido no existe." };
-    if (pedido.estado === "devuelto") throw { status: 400, message: "Este pedido ya fue devuelto." };
+const serviceFactory = (database) => {
+    const obtenerPedidoPorCodigo = async (codigoRetorno) => {
+        if (!codigoRetorno || !codigoRetorno.trim()) {
+            throw { status: 400, message: 'El código de devolución es obligatorio.' };
+        }
 
-    return pedido;
-};
+        const { data: pedido, error } = await database
+            .from('pedidos_web')
+            .select(ORDER_SELECT)
+            .eq('codigo_retorno', codigoRetorno.trim())
+            .single();
 
-// NUEVO: Método para el endpoint /calculate
-const calcularMontos = async (codigoRetorno, productosEnviados) => {
-    const pedidoOriginal = await obtenerPedidoPorCodigo(codigoRetorno);
-    let subtotal = 0;
+        if (error || !pedido) throw { status: 404, message: 'El pedido no existe.' };
+        if (pedido.estado === 'devuelto') throw { status: 400, message: 'Este pedido ya fue devuelto.' };
 
-    for (const itemDevuelto of productosEnviados) {
-        // Busca el producto en la base de datos para ver a qué precio se vendió
-        const itemOriginal = pedidoOriginal.detalle_pedido.find(
-            (p) => p.id_producto === itemDevuelto.id_producto
-        );
-
-        if (!itemOriginal) throw { status: 400, message: "Producto no pertenece al pedido." };
-        
-        // Acumula el dinero multiplicando precio base por cantidad devuelta
-        subtotal += (itemOriginal.precio_unitario * itemDevuelto.cantidad_devuelta);
-    }
-
-    const impuestos = subtotal * 0.19; // IVA del 19%
-    return {
-        subtotal: subtotal,
-        impuestos: impuestos,
-        total_reembolso: subtotal + impuestos
+        return pedido;
     };
-};
 
-// NUEVO: Método para el endpoint /refund
-const ejecutarReembolso = async (codigoRetorno, datosReembolso) => {
-    const { id_tienda, productos } = datosReembolso;
-    
-    // 1. Validación de seguridad
-    await obtenerPedidoPorCodigo(codigoRetorno); 
+    const normalizarProductos = (pedido, productos = [], selectedItemIds = []) => {
+        const requested = productos.length
+            ? productos
+            : selectedItemIds.map((id_producto) => ({ id_producto, cantidad_devuelta: 1 }));
 
-    // 2. Actualizar estado del pedido web
-    const { error: errorUpdate } = await supabase
-        .from('pedidos_web')
-        .update({ estado: 'devuelto' })
-        .eq('codigo_retorno', codigoRetorno);
+        if (!Array.isArray(requested) || requested.length === 0) {
+            throw { status: 400, message: 'Debe seleccionar al menos un producto.' };
+        }
 
-    if (errorUpdate) throw { status: 500, message: "Error al actualizar pedido." };
+        return requested.map((item) => {
+            const original = pedido.detalle_pedido.find((entry) => entry.id_producto === item.id_producto);
+            const cantidad = Number(item.cantidad_devuelta);
+            if (!original) throw { status: 400, message: 'Producto no pertenece al pedido.' };
+            if (!Number.isInteger(cantidad) || cantidad < 1 || cantidad > original.cantidad_comprada) {
+                throw { status: 400, message: 'La cantidad a devolver no es válida.' };
+            }
+            return { ...item, cantidad_devuelta: cantidad };
+        });
+    };
 
-    // 3. Garantizar el Dato Único interactuando con el Inventario
-    for (const item of productos) {
-        // Solo reabastecemos el stock si el cajero indicó que el producto está bueno
-        if (item.physicalStatus === 'restock') {
-            const { data: inventario } = await supabase
+    const calcularMontos = async (codigoRetorno, body = {}) => {
+        const pedidoOriginal = await obtenerPedidoPorCodigo(codigoRetorno);
+        const productos = normalizarProductos(pedidoOriginal, body.productos, body.selectedItemIds);
+        const subtotal = productos.reduce((total, item) => {
+            const original = pedidoOriginal.detalle_pedido.find((entry) => entry.id_producto === item.id_producto);
+            return total + Number(original.precio_unitario) * item.cantidad_devuelta;
+        }, 0);
+        const impuestos = Math.round(subtotal * 0.19);
+
+        return {
+            selectedCount: productos.reduce((total, item) => total + item.cantidad_devuelta, 0),
+            subtotal,
+            ivaAmount: impuestos,
+            totalRefund: subtotal + impuestos,
+            shippingCost: 0,
+            isShippingRefundable: false,
+            currency: 'CLP',
+        };
+    };
+
+    const ejecutarReembolso = async (codigoRetorno, datosReembolso = {}) => {
+        const { id_tienda, productos, selectedItemIds, refundMethod, globalReason } = datosReembolso;
+        if (!id_tienda) throw { status: 400, message: 'La tienda que recibe la devolución es obligatoria.' };
+        if (!refundMethod || !globalReason) throw { status: 400, message: 'El método y el motivo del reembolso son obligatorios.' };
+
+        const pedido = await obtenerPedidoPorCodigo(codigoRetorno);
+        const productosValidados = normalizarProductos(pedido, productos, selectedItemIds);
+        const { error: errorUpdate } = await database
+            .from('pedidos_web')
+            .update({ estado: 'devuelto' })
+            .eq('codigo_retorno', codigoRetorno);
+        if (errorUpdate) throw { status: 500, message: 'Error al actualizar pedido.' };
+
+        for (const item of productosValidados) {
+            if (item.physicalStatus !== 'restock') continue;
+            const { data: inventario, error: inventoryReadError } = await database
                 .from('inventario_tienda')
                 .select('stock_disponible')
                 .eq('id_tienda', id_tienda)
                 .eq('id_producto', item.id_producto)
                 .single();
+            if (inventoryReadError) throw { status: 500, message: 'Error al consultar inventario.' };
+            if (!inventario) throw { status: 400, message: 'El producto no existe en el inventario de la tienda.' };
 
-            if (inventario) {
-                await supabase
-                    .from('inventario_tienda')
-                    .update({ stock_disponible: inventario.stock_disponible + item.cantidad_devuelta })
-                    .eq('id_tienda', id_tienda)
-                    .eq('id_producto', item.id_producto);
-            }
+            const { error: inventoryUpdateError } = await database
+                .from('inventario_tienda')
+                .update({ stock_disponible: inventario.stock_disponible + item.cantidad_devuelta })
+                .eq('id_tienda', id_tienda)
+                .eq('id_producto', item.id_producto);
+            if (inventoryUpdateError) throw { status: 500, message: 'Error al actualizar inventario.' };
         }
-    }
 
-    return { exito: true, message: "Reembolso procesado y stock sincronizado." };
+        return {
+            success: true,
+            transactionId: `RET-${pedido.id_pedido}`,
+            refundedAmount: (await calcularMontos(codigoRetorno, { productos: productosValidados })).totalRefund,
+            creditNoteNumber: null,
+            message: 'Reembolso procesado y stock sincronizado.',
+        };
+    };
+
+    return { obtenerPedidoPorCodigo, calcularMontos, ejecutarReembolso };
 };
 
-module.exports = { obtenerPedidoPorCodigo, calcularMontos, ejecutarReembolso };
+module.exports = { ...serviceFactory(supabase), serviceFactory };
