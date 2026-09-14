@@ -98,17 +98,31 @@ export function useReturnOrder() {
   // Solicita al backend el recálculo financiero de los ítems seleccionados
   const requestRecalculation = useCallback(
     async (orderCode: string, selectedIds: string[], items: ReturnOrder['items']) => {
+      const selectedItems = items.filter((item) => selectedIds.includes(item.id));
+
+      if (selectedItems.length === 0) {
+        setFinancials({
+          selectedCount: 0,
+          subtotal: 0,
+          ivaAmount: 0,
+          totalRefund: 0,
+          shippingCost: 0,
+          isShippingRefundable: false,
+          currency: 'CLP',
+        });
+        return;
+      }
+
       setIsCalculating(true);
       try {
         const result = await returnService.calculateRefund(
           orderCode,
-          items.filter((item) => selectedIds.includes(item.id))
+          selectedItems
         );
         setFinancials(result);
       } catch (err) {
         console.warn('API /calculate no disponible, usando cálculo de respaldo:', err);
         // Fallback local si el backend no responde aún
-        const selectedItems = items.filter((i) => selectedIds.includes(i.id));
         const subtotal = selectedItems.reduce(
           (sum, i) => sum + i.unitPrice * (i.quantityToReturn || 1),
           0

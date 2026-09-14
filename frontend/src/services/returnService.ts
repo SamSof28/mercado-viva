@@ -42,7 +42,7 @@ export const returnService = {
         quantityToReturn: item.cantidad_comprada,
         physicalStatus: null,
         returnReason: '',
-        isSelected: false,
+        isSelected: item.productos?.es_devoluble === true,
       })),
       dispatchDate: order.fecha_compra,
       originalTotal: Number(order.total_pagado ?? 0),

@@ -73,6 +73,7 @@ const serviceFactory = (database) => {
 
         const pedido = await obtenerPedidoPorCodigo(codigoRetorno);
         const productosValidados = normalizarProductos(pedido, productos, selectedItemIds);
+        const financials = await calcularMontos(codigoRetorno, { productos: productosValidados });
         const { error: errorUpdate } = await database
             .from('pedidos_web')
             .update({ estado: 'devuelto' })
@@ -101,7 +102,7 @@ const serviceFactory = (database) => {
         return {
             success: true,
             transactionId: `RET-${pedido.id_pedido}`,
-            refundedAmount: (await calcularMontos(codigoRetorno, { productos: productosValidados })).totalRefund,
+            refundedAmount: financials.totalRefund,
             creditNoteNumber: null,
             message: 'Reembolso procesado y stock sincronizado.',
         };
