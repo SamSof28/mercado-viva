@@ -1,5 +1,5 @@
 import React from 'react';
-import mercadoVivaLogo from '../../assets/mercado-viva-logo.png';
+import mercadoVivaLogo from '../../assets/mercado-viva-logo.svg';
 import { useSession } from '../../context/SessionContext';
 import { useClock } from '../../hooks/useClock';
 
