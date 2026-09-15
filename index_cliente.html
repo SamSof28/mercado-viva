@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><title>Mercado Viva</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { 'colors': { 'inverse-surface': '#293040', 'on-surface-variant': '#3d4a42', 'outline-variant': '#bccac0', 'primary-fixed-dim': '#68dba9', 'outline': '#6d7a72', 'on-surface': '#141b2b', 'surface': '#f9f9ff', 'background': '#f9f9ff', 'inverse-primary': '#68dba9', 'on-primary-container': '#f5fff7', 'surface-container-low': '#f1f3ff', 'tertiary-fixed-dim': '#7bd8b1', 'on-background': '#141b2b', 'on-secondary-fixed': '#002113', 'on-tertiary-fixed': '#002115', 'surface-container-high': '#e1e8fd', 'tertiary-container': '#1e8462', 'on-primary-fixed': '#002114', 'on-tertiary-fixed-variant': '#00513a', 'surface-container-highest': '#dce2f7', 'on-primary': '#ffffff', 'primary': '#006948', 'on-error-container': '#93000a', 'tertiary': '#00694c', 'on-secondary-container': '#00714d', 'error': '#ba1a1a', 'on-secondary-fixed-variant': '#005236', 'surface-bright': '#f9f9ff', 'surface-container': '#e9edff', 'secondary': '#006c49', 'surface-container-lowest': '#ffffff', 'on-tertiary-container': '#f5fff7', 'primary-fixed': '#85f8c4', 'tertiary-fixed': '#97f5cc', 'on-error': '#ffffff', 'secondary-fixed-dim': '#4edea3', 'primary-container': '#00855d', 'surface-tint': '#006c4a', 'on-primary-fixed-variant': '#005137', 'on-tertiary': '#ffffff', 'on-secondary': '#ffffff', 'secondary-fixed': '#6ffbbe', 'surface-variant': '#dce2f7', 'error-container': '#ffdad6', 'secondary-container': '#6cf8bb', 'inverse-on-surface': '#edf0ff', 'surface-dim': '#d3daef' }, 'borderRadius': { 'DEFAULT': '0.125rem', 'lg': '0.25rem', 'xl': '0.5rem', 'full': '0.75rem' }, 'spacing': { 'gutter-mobile': '1rem', 'space-16': '4rem', 'space-1': '0.25rem', 'gutter-tablet': '1.5rem', 'container-max': '80rem', 'gutter-desktop': '1.5rem', 'space-8': '2rem', 'space-0': '0px', 'sidebar-collapsed': '4.5rem', 'sidebar-width': '16rem', 'space-3': '0.75rem', 'space-4': '1rem', 'space-5': '1.25rem', 'space-6': '1.5rem', 'space-12': '3rem', 'space-10': '2.5rem', 'space-2': '0.5rem' }, 'fontFamily': { 'display-sm': ['Inter'], 'label-lg': ['Inter'], 'headline-md': ['Inter'], 'body-lg': ['Inter'], 'body-sm': ['Inter'], 'body-xs': ['Inter'], 'display-lg': ['Inter'], 'headline-lg-mobile': ['Inter'], 'label-sm': ['Inter'], 'data-mono': ['JetBrains Mono'], 'headline-lg': ['Inter'], 'headline-sm': ['Inter'], 'body-md': ['Inter'], 'label-md': ['Inter'] }, 'fontSize': { 'display-sm': ['30px', { lineHeight: '38px', letterSpacing: '-0.02em', fontWeight: '600' }], 'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0em', fontWeight: '500' }], 'headline-md': ['20px', { lineHeight: '28px', letterSpacing: '-0.01em', fontWeight: '600' }], 'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0em', fontWeight: '400' }], 'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0.005em', fontWeight: '400' }], 'body-xs': ['12px', { lineHeight: '16px', letterSpacing: '0.01em', fontWeight: '400' }], 'display-lg': ['36px', { lineHeight: '44px', letterSpacing: '-0.02em', fontWeight: '700' }], 'headline-lg-mobile': ['20px', { lineHeight: '28px', letterSpacing: '-0.01em', fontWeight: '600' }], 'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.04em', fontWeight: '600' }], 'data-mono': ['13px', { lineHeight: '18px', letterSpacing: '-0.01em', fontWeight: '500' }], 'headline-lg': ['24px', { lineHeight: '32px', letterSpacing: '-0.015em', fontWeight: '600' }], 'headline-sm': ['16px', { lineHeight: '24px', letterSpacing: '-0.005em', fontWeight: '600' }], 'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0em', fontWeight: '400' }], 'label-md': ['13px', { lineHeight: '18px', letterSpacing: '0.005em', fontWeight: '500' }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#f9f9ff;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface font-body-md text-body-md flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-gutter-mobile flex items-center justify-between gap-space-2"><div class="flex items-center gap-space-2 min-w-0"><button aria-label="Volver a Mis Compras" class="w-11 h-11 -ml-space-2 flex items-center justify-center rounded-full text-on-surface hover:text-primary transition-colors flex-shrink-0" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><img alt="Mercado Viva Logo" class="h-7 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1Vonrg-j7voXFqk9a-nu6b9NvL73bqxr43I95UrQ17DcDaaUrU4gQe4HqZEZ65cXDhEVtm6Yn7TAy6-07xa68w7pNY3OiNcCN9cHU9L3mbMEr4t2dV_B35HssxLKDYsBoOB1GcKWcxC-4MXWcAx8iM0gkvspLjTJsrC3p3JsQA-NUydwApgd2dnNZwkl6IeroqSkKZ7rZHUqkm_BxFJqjYDREBlcQOB9_Kn1OqsCxLmsyJETtUCgHbXqA0q"/><h1 class="font-headline-sm text-headline-sm text-on-surface truncate leading-tight min-w-0">Detalle De Pedido</h1></div><div class="flex items-center gap-space-1 flex-shrink-0"><button aria-label="Notificaciones" class="relative w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[24px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-1"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-surface"><div class="flex flex-col w-full pb-space-12 space-y-space-4">
+<!-- Internal Navigation Breadcrumb & Order Status Pill -->
+<div class="px-gutter-mobile pt-space-3 flex items-center justify-between gap-space-2">
+<div class="flex items-center gap-space-1 min-w-0">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant flex-shrink-0">arrow_back_ios</span>
+<span class="font-label-md text-label-md text-on-surface-variant truncate">Mis Pedidos</span>
+<span class="text-outline-variant text-[12px]">/</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">#MV-8492</span>
+</div>
+<div class="bg-secondary-container text-on-secondary-fixed flex-shrink-0 px-space-2 py-space-1 rounded-full flex items-center gap-space-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-sm text-label-sm">Entregado ayer, 16:45</span>
+</div>
+</div>
+<!-- Order Details Card -->
+<div class="px-gutter-mobile">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<!-- Order Summary Header -->
+<div class="p-space-4 bg-surface-container-low flex flex-col gap-space-2">
+<div class="flex items-start justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wide">Fecha de Entrega</p>
+<p class="font-headline-sm text-headline-sm text-on-surface">14 de Octubre, 2024</p>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wide">Total Pagado</p>
+<p class="font-headline-sm text-headline-sm text-primary font-bold">$34.850 CLP</p>
+</div>
+</div>
+<div class="flex items-center gap-space-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">credit_card</span>
+<span class="font-body-xs text-body-xs">Tarjeta Débito terminada en •••• 4921</span>
+</div>
+</div>
+<!-- Product List -->
+<div class="p-space-4 space-y-space-3">
+<p class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase">Productos Incluidos (3)</p>
+<!-- Product 1 -->
+<div class="flex items-center gap-space-3 py-space-1">
+<div class="w-14 h-14 rounded-lg bg-surface-container-low overflow-hidden flex-shrink-0 flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Clear studio product shot of a dark glass bottle of De Cecco Extra Virgin Olive Oil 500ml on white studio surface with soft natural lighting and fresh botanical green accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFS5AU6lVIe3HXPt62yHEbBwKK24Y7VoSW1VXpomxpHqi6mvvglj2-IEzuQJVw-y0dSrhxTwiAk9sc45AejtkYUON87bi6C10QlA3o48ln26UTjRrthaI-VAtv_a-kXI29JkVd2h32y8ZmKb_P1RkwxnK79gKn8_YHXS2qAyy5e353Gg_1oEI4Iy00LUCQLGvfeSkS2zbRc1Rfxq-rjEnt7xdf0o77JElnd4M3IQHzTg25REW7cxpvhw"/>
+</div>
+<div class="flex-1 min-w-0">
+<h2 class="font-label-lg text-label-lg text-on-surface font-semibold truncate">Aceite de Oliva Extra Virgen 500ml</h2>
+<p class="font-body-xs text-body-xs text-on-surface-variant truncate">De Cecco • 1 unidad</p>
+<p class="font-data-mono text-data-mono text-on-surface font-medium mt-space-1">$9.890</p>
+</div>
+</div>
+<div class="h-[1px] bg-surface-container"></div>
+<!-- Product 2 -->
+<div class="flex items-center gap-space-3 py-space-1">
+<div class="w-14 h-14 rounded-lg bg-surface-container-low overflow-hidden flex-shrink-0 flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="High quality pack shot of Juan Valdez Premium ground coffee 250g bag dark roast packaging placed on warm neutral surface with subtle clean shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGemjt653p6P3mQwNGM-QAqbEWxElIlumXkv73kXvvAHdrNfNqCexQkaWU846-O788aJqQpHI6WaJAm-ozwy0bLisZLxMrXAIvH4MdHKkRk9fHL5DEGJCVugX4g97SHTacx8o2NbgJgiiaaeK5NwrZ8r9P42MWXSnDycTSWcvyQKwI2WVLhVFw8kqB4gVuKsI05rHe8NLAzvxJeucGQma3mOBy22o_yfZaFLJaSZxlydY8cF9tm_NM7A"/>
+</div>
+<div class="flex-1 min-w-0">
+<h2 class="font-label-lg text-label-lg text-on-surface font-semibold truncate">Café Molido Premium Tueste Intenso 250g</h2>
+<p class="font-body-xs text-body-xs text-on-surface-variant truncate">Juan Valdez • 2 unidades</p>
+<p class="font-data-mono text-data-mono text-on-surface font-medium mt-space-1">$12.580</p>
+</div>
+</div>
+<div class="h-[1px] bg-surface-container"></div>
+<!-- Product 3 -->
+<div class="flex items-center gap-space-3 py-space-1">
+<div class="w-14 h-14 rounded-lg bg-surface-container-low overflow-hidden flex-shrink-0 flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Studio clean photograph of BioFrescura 3 Liter bottle of hypoallergenic liquid laundry detergent with crisp eco-friendly branding and clear background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABkhNe75BlbeJoXuIsCxx0i0oKqbEiKSOeHARL5Rz0dzHE1trYHfT7YI-GW0q804JKXCWJkFQphIBdD1SZTutUwKYCBwzpz2QL7H1TFZgjiWj8rZ1e9fKY-QTcrC9vU_L3uEiUEIYRzefDVH7YxvsWhJcdpuWFNz-GQ8lLe8yXGBXs_NzlXi5Z8Rc5jBaLZv9guwHRLQv7zDISf2C-gKXn-P2W9Rx1TLb97GBzZx_yz3t-ruuPlwPxNQ"/>
+</div>
+<div class="flex-1 min-w-0">
+<h2 class="font-label-lg text-label-lg text-on-surface font-semibold truncate">Detergente Líquido Hipoalergénico 3L</h2>
+<p class="font-body-xs text-body-xs text-on-surface-variant truncate">BioFrescura • 1 unidad</p>
+<p class="font-data-mono text-data-mono text-on-surface font-medium mt-space-1">$12.380</p>
+</div>
+</div>
+</div>
+<!-- Warranty Notice -->
+<div class="mx-space-4 mb-space-4 p-space-3 bg-secondary-container/40 rounded-lg flex items-start gap-space-2">
+<span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">eco</span>
+<p class="font-body-xs text-body-xs text-on-secondary-fixed-variant leading-relaxed">
+          Tienes <span class="font-semibold text-on-secondary-fixed">10 días</span> para solicitar cambio o devolución sin costo en cualquiera de nuestras <span class="font-semibold text-on-secondary-fixed">48 tiendas físicas</span>.
+        </p>
+</div>
+</div>
+</div>
+<!-- Interactive Dual State Selector / Tabs -->
+<div class="px-gutter-mobile">
+<div class="bg-surface-container p-space-1 rounded-xl flex">
+<button class="flex-1 py-space-2 px-space-3 rounded-lg font-label-md text-label-md transition-all flex items-center justify-center gap-space-1 bg-surface-container-lowest text-on-surface shadow-sm font-semibold" id="tab-action-btn" onclick="toggleReturnView('action')">
+<span class="material-symbols-outlined text-[18px]">storefront</span>
+        Iniciar Devolución
+      </button>
+<button class="flex-1 py-space-2 px-space-3 rounded-lg font-label-md text-label-md transition-all flex items-center justify-center gap-space-1 text-on-surface-variant hover:text-on-surface" id="tab-ticket-btn" onclick="toggleReturnView('ticket')">
+<span class="material-symbols-outlined text-[18px]">confirmation_number</span>
+        Ticket Generado
+      </button>
+</div>
+</div>
+<!-- VIEW 1: Initial Action CTA State -->
+<div class="px-gutter-mobile space-y-space-3" id="view-action">
+<div class="bg-surface-container-lowest p-space-5 rounded-xl shadow-sm flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center text-primary mb-space-3">
+<span class="material-symbols-outlined text-[28px]">cached</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-1">Devolución Rápida Omnicanal</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-5 max-w-xs">
+        Evita esperas de paquetería o costos adicionales. Lleva tus artículos directamente a caja en tu sucursal más cercana.
+      </p>
+<!-- Primary CTA Button -->
+<button class="w-full bg-primary active:bg-primary-container text-on-primary py-space-3 px-space-4 rounded-xl shadow-sm flex items-center justify-center gap-space-3 transition-transform active:scale-[0.99]" onclick="toggleReturnView('ticket')">
+<div class="w-9 h-9 rounded-full bg-surface-container-lowest/15 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px] text-on-primary">storefront</span>
+</div>
+<div class="text-left flex-1 min-w-0">
+<p class="font-label-lg text-label-lg font-semibold leading-snug">Devolver en Tienda Física</p>
+<p class="font-body-xs text-body-xs text-on-primary-container opacity-90 truncate">Reembolso inmediato en caja sin costo de envío</p>
+</div>
+<span class="material-symbols-outlined text-[20px] text-on-primary">arrow_forward</span>
+</button>
+</div>
+<!-- Quick perks banner -->
+<div class="grid grid-cols-2 gap-space-2">
+<div class="bg-surface-container-low p-space-3 rounded-lg flex items-center gap-space-2">
+<span class="material-symbols-outlined text-primary text-[20px]">bolt</span>
+<div class="min-w-0">
+<p class="font-label-sm text-label-sm font-semibold text-on-surface">Reintegro Inmediato</p>
+<p class="font-body-xs text-body-xs text-on-surface-variant truncate">En tu tarjeta original</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-3 rounded-lg flex items-center gap-space-2">
+<span class="material-symbols-outlined text-primary text-[20px]">location_on</span>
+<div class="min-w-0">
+<p class="font-label-sm text-label-sm font-semibold text-on-surface">48 Sucursales</p>
+<p class="font-body-xs text-body-xs text-on-surface-variant truncate">Red nacional Viva</p>
+</div>
+</div>
+</div>
+</div>
+<!-- VIEW 2: Generated Return Ticket (Success State) -->
+<div class="hidden px-gutter-mobile space-y-space-3" id="view-ticket">
+<!-- Success Banner -->
+<div class="bg-secondary-container/50 rounded-xl p-space-4 flex items-center gap-space-3 shadow-sm">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg font-bold text-on-secondary-fixed leading-tight">¡Solicitud Generada con Éxito!</p>
+<p class="font-body-xs text-body-xs text-on-secondary-fixed-variant mt-0.5">Válido hasta el 24 de Octubre de 2024</p>
+</div>
+</div>
+<!-- Voucher Digital Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden relative">
+<!-- Top header voucher -->
+<div class="p-space-4 bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-2">
+<span class="material-symbols-outlined text-primary text-[22px]">qr_code_scanner</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface tracking-tight">Comprobante de Caja</span>
+</div>
+<span class="font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed font-semibold px-space-2 py-0.5 rounded">Activo</span>
+</div>
+<div class="p-space-5 flex flex-col items-center">
+<!-- Return Code Box -->
+<p class="font-body-xs text-body-xs text-on-surface-variant uppercase font-semibold tracking-wider mb-space-1">Código de Devolución</p>
+<div class="w-full bg-surface-container flex items-center justify-between px-space-4 py-space-3 rounded-xl mb-space-5">
+<span class="font-data-mono text-[22px] font-bold tracking-widest text-primary" id="return-code-text">DEV-8492</span>
+<button class="flex items-center gap-space-1 bg-surface-container-lowest text-primary px-space-3 py-space-1 rounded-lg font-label-sm text-label-sm shadow-sm active:scale-95 transition-transform" onclick="copyReturnCode()">
+<span class="material-symbols-outlined text-[16px]" id="copy-icon">content_copy</span>
+<span id="copy-text">Copiar</span>
+</button>
+</div>
+<!-- Simulated Vector QR Code -->
+<div class="bg-surface-container-lowest p-space-3 rounded-xl shadow-sm mb-space-4 flex flex-col items-center">
+<svg class="w-44 h-44 text-on-surface" fill="currentColor" viewbox="0 0 160 160">
+<!-- Finder pattern top-left -->
+<rect height="40" rx="4" width="40" x="10" y="10"></rect>
+<rect fill="#ffffff" height="24" width="24" x="18" y="18"></rect>
+<rect height="12" width="12" x="24" y="24"></rect>
+<!-- Finder pattern top-right -->
+<rect height="40" rx="4" width="40" x="110" y="10"></rect>
+<rect fill="#ffffff" height="24" width="24" x="118" y="18"></rect>
+<rect height="12" width="12" x="124" y="24"></rect>
+<!-- Finder pattern bottom-left -->
+<rect height="40" rx="4" width="40" x="10" y="110"></rect>
+<rect fill="#ffffff" height="24" width="24" x="18" y="118"></rect>
+<rect height="12" width="12" x="24" y="124"></rect>
+<!-- Timing bars and modules -->
+<rect height="8" width="8" x="58" y="20"></rect>
+<rect height="8" width="8" x="74" y="20"></rect>
+<rect height="8" width="8" x="90" y="20"></rect>
+<rect height="8" width="8" x="20" y="58"></rect>
+<rect height="8" width="8" x="20" y="74"></rect>
+<rect height="8" width="8" x="20" y="90"></rect>
+<!-- Data modules -->
+<rect height="16" width="16" x="58" y="58"></rect>
+<rect height="8" width="8" x="82" y="58"></rect>
+<rect height="8" width="16" x="98" y="58"></rect>
+<rect height="16" width="8" x="122" y="58"></rect>
+<rect height="16" width="8" x="58" y="82"></rect>
+<rect height="8" width="16" x="74" y="74"></rect>
+<rect height="8" width="8" x="74" y="90"></rect>
+<rect height="16" width="16" x="90" y="82"></rect>
+<rect height="8" width="16" x="114" y="82"></rect>
+<rect height="16" width="8" x="138" y="74"></rect>
+<rect height="8" width="16" x="58" y="106"></rect>
+<rect height="8" width="8" x="82" y="114"></rect>
+<rect height="16" width="8" x="98" y="106"></rect>
+<rect height="8" width="16" x="114" y="114"></rect>
+<rect height="16" width="8" x="138" y="106"></rect>
+<rect height="16" width="8" x="58" y="122"></rect>
+<rect height="8" width="16" x="74" y="130"></rect>
+<rect height="8" width="8" x="98" y="130"></rect>
+<rect height="16" width="8" x="114" y="130"></rect>
+<rect height="8" width="16" x="130" y="130"></rect>
+</svg>
+<span class="font-body-xs text-body-xs text-on-surface-variant mt-space-1">Escanear para autenticar devolución</span>
+</div>
+<!-- High Contrast Barcode for Laser Scanners -->
+<div class="w-full flex flex-col items-center bg-surface-container-low py-space-3 px-space-4 rounded-lg">
+<svg class="w-full h-12" fill="currentColor" viewbox="0 0 240 48">
+<!-- Realistic 1D Barcode bars -->
+<rect height="40" width="3" x="8" y="4"></rect>
+<rect height="40" width="2" x="14" y="4"></rect>
+<rect height="40" width="4" x="20" y="4"></rect>
+<rect height="40" width="1" x="27" y="4"></rect>
+<rect height="40" width="5" x="31" y="4"></rect>
+<rect height="40" width="2" x="39" y="4"></rect>
+<rect height="40" width="3" x="44" y="4"></rect>
+<rect height="40" width="1" x="51" y="4"></rect>
+<rect height="40" width="4" x="55" y="4"></rect>
+<rect height="40" width="2" x="62" y="4"></rect>
+<rect height="40" width="5" x="67" y="4"></rect>
+<rect height="40" width="2" x="76" y="4"></rect>
+<rect height="40" width="1" x="81" y="4"></rect>
+<rect height="40" width="4" x="85" y="4"></rect>
+<rect height="40" width="3" x="92" y="4"></rect>
+<rect height="40" width="2" x="98" y="4"></rect>
+<rect height="40" width="5" x="103" y="4"></rect>
+<rect height="40" width="1" x="111" y="4"></rect>
+<rect height="40" width="4" x="115" y="4"></rect>
+<rect height="40" width="2" x="122" y="4"></rect>
+<rect height="40" width="4" x="127" y="4"></rect>
+<rect height="40" width="1" x="134" y="4"></rect>
+<rect height="40" width="3" x="138" y="4"></rect>
+<rect height="40" width="5" x="144" y="4"></rect>
+<rect height="40" width="2" x="152" y="4"></rect>
+<rect height="40" width="3" x="157" y="4"></rect>
+<rect height="40" width="1" x="163" y="4"></rect>
+<rect height="40" width="4" x="167" y="4"></rect>
+<rect height="40" width="2" x="174" y="4"></rect>
+<rect height="40" width="5" x="179" y="4"></rect>
+<rect height="40" width="1" x="187" y="4"></rect>
+<rect height="40" width="4" x="191" y="4"></rect>
+<rect height="40" width="3" x="198" y="4"></rect>
+<rect height="40" width="2" x="204" y="4"></rect>
+<rect height="40" width="4" x="209" y="4"></rect>
+<rect height="40" width="1" x="216" y="4"></rect>
+<rect height="40" width="5" x="220" y="4"></rect>
+<rect height="40" width="2" x="228" y="4"></rect>
+</svg>
+<span class="font-data-mono text-body-xs text-on-surface font-semibold tracking-widest mt-1">7809420084920</span>
+</div>
+</div>
+<!-- Step-by-Step Instructions -->
+<div class="p-space-4 bg-surface-container-low space-y-space-3">
+<p class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-space-1">
+<span class="material-symbols-outlined text-primary text-[18px]">info</span>
+          Pasos a seguir en sucursal
+        </p>
+<div class="flex items-start gap-space-3">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary font-bold text-[12px] flex items-center justify-center flex-shrink-0 mt-0.5">1</div>
+<p class="font-body-xs text-body-xs text-on-surface-variant leading-relaxed">
+            Acércate a la <strong class="text-on-surface">Caja 03</strong> o al módulo de <strong class="text-on-surface">Servicio al Cliente</strong> en cualquier sucursal de Mercado Viva.
+          </p>
+</div>
+<div class="flex items-start gap-space-3">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary font-bold text-[12px] flex items-center justify-center flex-shrink-0 mt-0.5">2</div>
+<p class="font-body-xs text-body-xs text-on-surface-variant leading-relaxed">
+            Presenta este código en pantalla junto a los productos en su empaque original y buen estado.
+          </p>
+</div>
+<div class="flex items-start gap-space-3">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary font-bold text-[12px] flex items-center justify-center flex-shrink-0 mt-0.5">3</div>
+<p class="font-body-xs text-body-xs text-on-surface-variant leading-relaxed">
+            El cajero escaneará el ticket y validará tu reembolso en el acto a tu medio de pago original.
+          </p>
+</div>
+</div>
+</div>
+<!-- Secondary Action Buttons -->
+<div class="flex gap-space-2 pt-space-1">
+<button class="flex-1 bg-surface-container-lowest text-on-surface font-label-md text-label-md py-space-3 px-space-2 rounded-xl shadow-sm flex items-center justify-center gap-space-1 active:bg-surface-container">
+<span class="material-symbols-outlined text-[18px] text-primary">download</span>
+        Descargar PDF
+      </button>
+<button class="flex-1 bg-surface-container-lowest text-on-surface font-label-md text-label-md py-space-3 px-space-2 rounded-xl shadow-sm flex items-center justify-center gap-space-1 active:bg-surface-container">
+<span class="material-symbols-outlined text-[18px] text-primary">near_me</span>
+        Tiendas Cercanas
+      </button>
+</div>
+</div>
+</div>
+<script>
+  function toggleReturnView(view) {
+    const viewAction = document.getElementById('view-action');
+    const viewTicket = document.getElementById('view-ticket');
+    const tabAction = document.getElementById('tab-action-btn');
+    const tabTicket = document.getElementById('tab-ticket-btn');
+
+    if (view === 'ticket') {
+      viewAction.classList.add('hidden');
+      viewTicket.classList.remove('hidden');
+      
+      tabTicket.classList.add('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm', 'font-semibold');
+      tabTicket.classList.remove('text-on-surface-variant');
+
+      tabAction.classList.remove('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm', 'font-semibold');
+      tabAction.classList.add('text-on-surface-variant');
+    } else {
+      viewTicket.classList.add('hidden');
+      viewAction.classList.remove('hidden');
+
+      tabAction.classList.add('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm', 'font-semibold');
+      tabAction.classList.remove('text-on-surface-variant');
+
+      tabTicket.classList.remove('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm', 'font-semibold');
+      tabTicket.classList.add('text-on-surface-variant');
+    }
+  }
+
+  function copyReturnCode() {
+    const code = document.getElementById('return-code-text').innerText;
+    const copyText = document.getElementById('copy-text');
+    const copyIcon = document.getElementById('copy-icon');
+
+    navigator.clipboard.writeText(code).then(() => {
+      copyText.innerText = 'Copiado';
+      copyIcon.innerText = 'check';
+      setTimeout(() => {
+        copyText.innerText = 'Copiar';
+        copyIcon.innerText = 'content_copy';
+      }, 2200);
+    }).catch(() => {
+      copyText.innerText = 'Copiado';
+      setTimeout(() => { copyText.innerText = 'Copiar'; }, 2000);
+    });
+  }
+</script></main></body></html>
