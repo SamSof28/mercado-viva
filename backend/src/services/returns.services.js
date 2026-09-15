@@ -1,4 +1,6 @@
 const supabase = require('../config/supabase');
+const MAX_RETURN_DAYS = 30;
+const MAX_RETURN_AGE_MS = MAX_RETURN_DAYS * 24 * 60 * 60 * 1000;
 
 const ORDER_SELECT = `
     id_pedido, codigo_retorno, estado, fecha_compra, total_pagado,
@@ -22,6 +24,14 @@ const serviceFactory = (database) => {
 
         if (error || !pedido) throw { status: 404, message: 'El pedido no existe.' };
         if (pedido.estado === 'devuelto') throw { status: 400, message: 'Este pedido ya fue devuelto.' };
+
+        const fechaCompra = new Date(pedido.fecha_compra);
+        if (Number.isNaN(fechaCompra.getTime())) {
+            throw { status: 500, message: 'La fecha de compra del pedido no es válida.' };
+        }
+        if (Date.now() - fechaCompra.getTime() > MAX_RETURN_AGE_MS) {
+            throw { status: 400, message: `El plazo para devolver este pedido es de ${MAX_RETURN_DAYS} días.` };
+        }
 
         return pedido;
     };

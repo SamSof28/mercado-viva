@@ -14,7 +14,7 @@ const order = {
     ],
 };
 
-function createDatabase() {
+function createDatabase(orderOverride = order) {
     const updates = [];
     const database = {
         updates,
@@ -28,7 +28,7 @@ function createDatabase() {
                     return query;
                 },
                 single() {
-                    if (table === 'pedidos_web') return Promise.resolve({ data: order, error: null });
+                    if (table === 'pedidos_web') return Promise.resolve({ data: orderOverride, error: null });
                     return Promise.resolve({ data: { stock_disponible: 3 }, error: null });
                 },
                 then(resolve, reject) {
@@ -70,6 +70,23 @@ test('rechaza cantidades superiores a la compra original', async () => {
         }),
         (error) => error.status === 400 && error.message.includes('cantidad')
     );
+});
+
+test('rechaza pedidos comprados hace más de 30 días', async () => {
+    const expiredOrder = {
+        ...order,
+        fecha_compra: new Date(Date.now() - 31 * 24 * 60 * 60 * 1000).toISOString(),
+    };
+    const database = createDatabase(expiredOrder);
+    const service = serviceFactory(database);
+
+    await assert.rejects(
+        service.calcularMontos('DEV-8492', {
+            productos: [{ id_producto: 'product-1', cantidad_devuelta: 1 }],
+        }),
+        (error) => error.status === 400 && error.message.includes('30 días')
+    );
+    assert.equal(database.updates.length, 0);
 });
 
 test('actualiza pedido y repone inventario cuando el producto es apto', async () => {

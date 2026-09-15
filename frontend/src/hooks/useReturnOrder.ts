@@ -157,8 +157,8 @@ export function useReturnOrder() {
         const selectedIds = order.items.filter((i) => i.isSelected).map((i) => i.id);
         await requestRecalculation(order.code, selectedIds, order.items);
       } catch (err) {
-        console.warn('Fallo al validar con API, revisando fallback local para DEV-8492:', err);
-        if (code.trim().toUpperCase() === 'DEV-8492') {
+        console.warn('Fallo al validar con API:', err);
+        if (err instanceof TypeError && code.trim().toUpperCase() === 'DEV-8492') {
           setReturnOrder(fallbackOrder);
           setFinancials(initialFinancials);
           setCashierNotes(
