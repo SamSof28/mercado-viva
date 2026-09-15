@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" fill="none">
+  <rect width="44" height="44" y="10" rx="10" fill="#059669"/>
+  <path d="M14 26C14 22.6863 16.6863 20 20 20H24C27.3137 20 30 22.6863 30 26V38C30 41.3137 27.3137 44 24 44H20C16.6863 44 14 41.3137 14 38V26Z" fill="#059669"/>
+  <path d="M18 36L22 25L26 36" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M22 23V19C22 17.5 23.5 16 25 16C27 16 28 17.5 28 19" stroke="#A7F3D0" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="28" cy="18" r="1.5" fill="#34D399"/>
+  <text x="56" y="38" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="20" font-weight="700" fill="#111827" letter-spacing="-0.5px">Mercado<tspan fill="#059669">Viva</tspan></text>
+  <text x="56" y="49" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="9.5" font-weight="600" fill="#6B7280" letter-spacing="0.8px">OMNICANAL RETAIL</text>
+</svg>

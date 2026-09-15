@@ -1,4 +1,5 @@
 import React from 'react';
+import mercadoVivaLogo from '../../assets/mercado-viva-logo.png';
 import { useSession } from '../../context/SessionContext';
 import { useClock } from '../../hooks/useClock';
 
@@ -12,9 +13,9 @@ export const Header: React.FC = () => {
         <div className="flex items-center gap-space-4">
           <div className="flex items-center gap-space-3">
             <img
-              alt="Mercado Viva Logo"
+              src={mercadoVivaLogo}
+              alt="Mercado Viva"
               className="h-8 w-auto object-contain"
-              src="https://lh3.googleusercontent.com/aida/AEtjO1Vonrg-j7voXFqk9a-nu6b9NvL73bqxr43I95UrQ17DcDaaUrU4gQe4HqZEZ65cXDhEVtm6Yn7TAy6-07xa68w7pNY3OiNcCN9cHU9L3mbMEr4t2dV_B35HssxLKDYsBoOB1GcKWcxC-4MXWcAx8iM0gkvspLjTJsrC3p3JsQA-NUydwApgd2dnNZwkl6IeroqSkKZ7rZHUqkm_BxFJqjYDREBlcQOB9_Kn1OqsCxLmsyJETtUCgHbXqA0q"
             />
             <span className="font-headline-sm text-headline-sm text-on-surface tracking-tight">
               Mercado Viva POS
