@@ -1,6 +1,8 @@
 const supabase = require('../config/supabase');
 const MAX_RETURN_DAYS = 30;
 const MAX_RETURN_AGE_MS = MAX_RETURN_DAYS * 24 * 60 * 60 * 1000;
+const VALID_PHYSICAL_STATUSES = ['damage', 'restock', 'not_received'];
+const VALID_REFUND_METHODS = ['original_card', 'store_credit', 'cash'];
 
 const ORDER_SELECT = `
     id_pedido, codigo_retorno, estado, fecha_compra, total_pagado,
@@ -79,10 +81,17 @@ const serviceFactory = (database) => {
     const ejecutarReembolso = async (codigoRetorno, datosReembolso = {}) => {
         const { id_tienda, productos, selectedItemIds, refundMethod, globalReason } = datosReembolso;
         if (!id_tienda) throw { status: 400, message: 'La tienda que recibe la devolución es obligatoria.' };
-        if (!refundMethod || !globalReason) throw { status: 400, message: 'El método y el motivo del reembolso son obligatorios.' };
+        if (!VALID_REFUND_METHODS.includes(refundMethod) || !globalReason) {
+            throw { status: 400, message: 'El método y el motivo del reembolso son obligatorios y válidos.' };
+        }
 
         const pedido = await obtenerPedidoPorCodigo(codigoRetorno);
         const productosValidados = normalizarProductos(pedido, productos, selectedItemIds);
+        for (const item of productosValidados) {
+            if (item.physicalStatus && !VALID_PHYSICAL_STATUSES.includes(item.physicalStatus)) {
+                throw { status: 400, message: 'El estado físico del producto no es válido.' };
+            }
+        }
         const financials = await calcularMontos(codigoRetorno, { productos: productosValidados });
         const { error: errorUpdate } = await database
             .from('pedidos_web')

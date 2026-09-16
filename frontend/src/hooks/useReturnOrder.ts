@@ -279,19 +279,9 @@ export function useReturnOrder() {
       const res = await returnService.processRefund(returnOrder.code, payload);
       return res;
     } catch (err) {
-      console.warn('Error en endpoint de reembolso, ejecutando simulación:', err);
-      // Simulación exitosa para no bloquear el flujo
-      return {
-        success: true,
-        transactionId: `TXN-${Date.now()}`,
-        refundedAmount: financials.totalRefund,
-        creditNoteNumber: 'NC-00482',
-        message: `Reembolso de $${new Intl.NumberFormat('es-CL').format(
-          financials.totalRefund
-        )} procesado exitosamente vía Transbank Webpay. Comprobante enviado por email a ${
-          returnOrder.customer.name
-        } y transmitido a SAP.`,
-      };
+      console.warn('Error en endpoint de reembolso:', err);
+      setError(err instanceof Error ? err.message : 'No se pudo procesar el reembolso.');
+      return null;
     } finally {
       setIsProcessing(false);
     }

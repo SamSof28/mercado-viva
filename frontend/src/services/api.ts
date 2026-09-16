@@ -14,6 +14,8 @@ class ApiClient {
       'Content-Type': 'application/json',
       Accept: 'application/json',
     };
+    const token = typeof localStorage !== 'undefined' ? localStorage.getItem('mercado-viva-token') : null;
+    if (token) defaultHeaders.Authorization = `Bearer ${token}`;
 
     const config: RequestInit = {
       ...options,
