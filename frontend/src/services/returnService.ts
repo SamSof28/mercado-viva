@@ -36,7 +36,7 @@ export const returnService = {
         sku: item.productos?.sku ?? item.id_producto,
         name: item.productos?.nombre ?? 'Producto sin nombre',
         category: 'Sin categoría',
-        imageUrl: '',
+        imageUrl: item.productos?.imagen_url ?? '',
         unitPrice: Number(item.precio_unitario),
         quantityOrdered: item.cantidad_comprada,
         quantityToReturn: item.cantidad_comprada,

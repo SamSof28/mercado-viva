@@ -3,6 +3,7 @@ import type { OrderItem } from '../../types';
 import { formatCurrency } from '../../utils/formatters';
 import { StatusBadge } from '../ui/StatusBadge';
 import { defaultItemReasons } from '../../config/returnReasons';
+import productPlaceholder from '../../assets/product-placeholder.svg';
 
 interface ReturnItemRowProps {
   item: OrderItem;
@@ -42,7 +43,15 @@ export const ReturnItemRow: React.FC<ReturnItemRowProps> = ({
               !item.isSelected ? 'grayscale' : ''
             }`}
           >
-            <img className="w-full h-full object-cover" src={item.imageUrl} alt={item.name} />
+            <img
+              className="w-full h-full object-cover"
+              src={item.imageUrl || productPlaceholder}
+              alt={item.name}
+              onError={(event) => {
+                event.currentTarget.onerror = null;
+                event.currentTarget.src = productPlaceholder;
+              }}
+            />
           </div>
           <div className="flex flex-col min-w-0">
             <span className="font-label-md text-label-md text-on-surface truncate font-semibold">

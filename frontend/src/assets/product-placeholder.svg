@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Producto sin imagen</title>
+  <desc id="desc">Marcador visual para un producto sin imagen disponible</desc>
+  <rect width="512" height="512" fill="#e8eee9"/>
+  <rect x="112" y="136" width="288" height="240" rx="24" fill="#c7d7cc"/>
+  <path d="M160 320l64-72 48 48 40-56 80 80H160z" fill="#0a9f6e"/>
+  <circle cx="304" cy="208" r="28" fill="#0a9f6e"/>
+</svg>

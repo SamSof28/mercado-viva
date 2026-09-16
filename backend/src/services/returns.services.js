@@ -8,7 +8,7 @@ const ORDER_SELECT = `
     id_pedido, codigo_retorno, estado, fecha_compra, total_pagado,
     detalle_pedido (
         id_producto, cantidad_comprada, precio_unitario,
-        productos ( nombre, sku, es_devoluble )
+        productos ( nombre, sku, es_devoluble, imagen_url )
     )
 `;
 
