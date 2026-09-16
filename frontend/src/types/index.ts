@@ -91,3 +91,52 @@ export interface RefundResponse {
   creditNoteNumber: string;
   message: string;
 }
+
+// === Authentication ===
+export interface AuthResponse {
+  role: 'cajero' | 'cliente';
+  token: string; // If using JWT
+  user: {
+    id: string;
+    name: string;
+    email: string;
+  };
+  // Optional depending on role
+  storeSession?: StoreSession;
+}
+
+// === Client Portal ===
+export interface ClientOrder {
+  id: string;
+  date: string;
+  total: number;
+  status: 'entregado' | 'en_camino' | 'pendiente';
+  items: ClientOrderItem[];
+  paymentMethod: {
+    type: string;
+    last4: string;
+  };
+}
+
+export interface ClientOrderItem {
+  id: string;
+  sku: string;
+  name: string;
+  brand: string;
+  unitPrice: number;
+  quantity: number;
+  imageUrl: string;
+}
+
+export interface CreateReturnRequest {
+  orderId: string;
+  items: { id: string; quantity: number }[];
+  reason: string;
+  method: RefundMethod;
+}
+
+export interface CreateReturnResponse {
+  success: boolean;
+  returnCode: string;
+  validUntil: string;
+}
