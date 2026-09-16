@@ -1,19 +1,19 @@
-# 🛒 MVP Mercado Viva - Sistema de Devoluciones Omnicanal
+# MVP Mercado Viva - Sistema de Devoluciones Omnicanal
 
-## 📖 Descripción del Proyecto
+## Descripción del Proyecto
 Mercado Viva es una cadena de supermercados que actualmente enfrenta graves cuellos de botella operativos y frustración en los clientes debido a la incapacidad de gestionar devoluciones de pedidos digitales en sus canales físicos. 
 
 Este Producto Mínimo Viable (MVP) propone una solución de logística inversa. Conecta una interfaz para el cliente digital con una herramienta intuitiva en el Punto de Venta (POS) para el cajero. 
 
 **Objetivo Principal:** Procesar devoluciones digitales de manera presencial, garantizando la consistencia de datos y el principio de "Dato Único" en el inventario.
 
-## 🛠️ Stack Tecnológico
+## Stack Tecnológico
 * **Frontend:** React (TSX/JSX) + Tailwind CSS
 * **Backend:** Node.js + Express
 * **Base de Datos:** Supabase (PostgreSQL)
 * **Despliegue:** Vercel
 
-## 🚀 Guía de Instalación y Uso para el Equipo
+## Guía de Instalación y Uso para el Equipo
 
 Para correr este proyecto en tu entorno local, asegúrate de tener instalado [Node.js](https://nodejs.org/) y Git.
 
